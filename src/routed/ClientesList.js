@@ -69,7 +69,7 @@ export default function ClientesList() {
 
     async function deleteItem() {
         try {
-            await axios.delete(`https://api.faustocintra.com.br/karangos/${deletable}`)
+            await axios.delete(`https://api.faustocintra.com.br/clientes/${deletable}`)
             getData() // Atualiza os dados novamente na tabela
             setSnackState({ ...snackState, open: true }) // Exibe a snackbar de sucesso
         } catch (error) {
@@ -84,7 +84,7 @@ export default function ClientesList() {
 
     async function getData() {
         try {
-            let response = await axios.get('https://api.faustocintra.com.br/karangos?by=marca,modelo')
+            let response = await axios.get('https://api.faustocintra.com.br/clientes?by=nome,cpf')
             if (response.data.length > 0) setClientes(response.data)
         }
         catch (error) {
@@ -127,15 +127,20 @@ export default function ClientesList() {
             <TableContainer component={Paper}>
                 <Table className={classes.table} size="small" aria-label="a dense table">
                     <TableHead>
-                        <TableRow>
+                        <TableRow align="center">
                             <TableCell align="right">Cód.</TableCell>
-                            <TableCell>Marca</TableCell>
-                            <TableCell>Modelo</TableCell>
-                            <TableCell>Cor</TableCell>
-                            <TableCell align="center">Ano</TableCell>
-                            <TableCell align="center">Importado?</TableCell>
-                            <TableCell align="center">Placa</TableCell>
-                            <TableCell align="right">Preço</TableCell>
+                            <TableCell align="center">Nome</TableCell>
+                            <TableCell align="center">CPF</TableCell>
+                            <TableCell align="center">RG</TableCell>
+                            <TableCell align="center">logradouro</TableCell>
+                            <TableCell align="center">Número</TableCell>
+                            <TableCell align="center">Complemento</TableCell>
+                            <TableCell align="center">Bairro</TableCell>
+                            <TableCell align="center">Município</TableCell>
+                            <TableCell align="center">UF</TableCell>
+                            <TableCell align="center">Telefone</TableCell>
+                            <TableCell align="center">Email</TableCell>
+
                             <TableCell align="center">Editar</TableCell>
                             <TableCell align="center">Excluir</TableCell>
                         </TableRow>
@@ -144,18 +149,18 @@ export default function ClientesList() {
                         {
                             clientes.map(cliente =>
                                 <TableRow key={cliente.id} className={classes.tableRow}>
-                                    <TableCell align="right">{cliente.id}</TableCell>
-                                    <TableCell>{cliente.marca}</TableCell>
-                                    <TableCell>{cliente.modelo}</TableCell>
-                                    <TableCell>{cliente.cor}</TableCell>
-                                    <TableCell align="center">{cliente.ano_fabricacao}</TableCell>
-                                    <TableCell align="center">
-                                        <Checkbox checked={cliente.importado === '1'} readOnly />
-                                    </TableCell>
-                                    <TableCell align="center">{cliente.placa}</TableCell>
-                                    <TableCell align="right">
-                                        {Number(cliente.preco).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}
-                                    </TableCell>
+                                    <TableCell align="center">{cliente.id}</TableCell>
+                                    <TableCell align="center">{cliente.nome}</TableCell>
+                                    <TableCell align="center">{cliente.cpf}</TableCell>
+                                    <TableCell align="center">{cliente.rg}</TableCell>
+                                    <TableCell align="center">{cliente.logradouro}</TableCell>
+                                    <TableCell align="center">{cliente.num_imovel}</TableCell>
+                                    <TableCell align="center">{cliente.complemento}</TableCell>
+                                    <TableCell align="center">{cliente.bairro}</TableCell>
+                                    <TableCell align="center">{cliente.municipio}</TableCell>
+                                    <TableCell align="center">{cliente.uf}</TableCell>
+                                    <TableCell align="center">{cliente.telefone}</TableCell>
+                                    <TableCell align="center">{cliente.email}</TableCell>
                                     <TableCell align="center">
                                         <IconButton aria-label="edit">
                                             <EditIcon />

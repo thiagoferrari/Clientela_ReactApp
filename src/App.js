@@ -2,7 +2,7 @@ import TopBar from './ui/TopBar';
 import FooterBar from './ui/FooterBar'
 import { createMuiTheme, ThemeProvider, makeStyles } from '@material-ui/core/styles';
 import cyan from '@material-ui/core/colors/cyan';
-import pink from '@material-ui/core/colors/pink';
+import red from '@material-ui/core/colors/red';
 import { Box } from '@material-ui/core';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import ClientesList from './routed/ClientesList';
@@ -15,7 +15,7 @@ const theme = createMuiTheme({
             main: cyan[500],
         },
         secondary: {
-            main: pink[500],
+            main: red[500],
         },
     },
 })
@@ -45,7 +45,7 @@ function Main() {
                             <ClientesList />
                         </Route>
                         <Route path="/new">
-                            <clientesForm />
+                            <ClientesForm />
                         </Route>
                     </Switch>
                 </Box>
