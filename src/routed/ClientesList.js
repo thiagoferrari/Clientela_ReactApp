@@ -128,7 +128,7 @@ export default function ClientesList() {
                 <Table className={classes.table} size="small" aria-label="a dense table">
                     <TableHead>
                         <TableRow align="center">
-                            <TableCell align="right">Cód.</TableCell>
+                            <TableCell align="center">Cód.</TableCell>
                             <TableCell align="center">Nome</TableCell>
                             <TableCell align="center">CPF</TableCell>
                             <TableCell align="center">RG</TableCell>
@@ -149,18 +149,7 @@ export default function ClientesList() {
                         {
                             clientes.map(cliente =>
                                 <TableRow key={cliente.id} className={classes.tableRow}>
-                                    <TableCell align="center">{cliente.id}</TableCell>
-                                    <TableCell align="center">{cliente.nome}</TableCell>
-                                    <TableCell align="center">{cliente.cpf}</TableCell>
-                                    <TableCell align="center">{cliente.rg}</TableCell>
-                                    <TableCell align="center">{cliente.logradouro}</TableCell>
-                                    <TableCell align="center">{cliente.num_imovel}</TableCell>
-                                    <TableCell align="center">{cliente.complemento}</TableCell>
-                                    <TableCell align="center">{cliente.bairro}</TableCell>
-                                    <TableCell align="center">{cliente.municipio}</TableCell>
-                                    <TableCell align="center">{cliente.uf}</TableCell>
-                                    <TableCell align="center">{cliente.telefone}</TableCell>
-                                    <TableCell align="center">{cliente.email}</TableCell>
+                                    {console.log('cliente :>> ', cliente)}
                                     <TableCell align="center">
                                         <IconButton aria-label="edit">
                                             <EditIcon />
