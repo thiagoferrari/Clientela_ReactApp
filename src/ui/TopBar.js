@@ -6,28 +6,28 @@ import logo from '../img/logo.png';
 import MainMenu from './MainMenu';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  logo: {
-    width: '300px'
-  }
+	root: {
+		flexGrow: 1,
+	},
+	menuButton: {
+		marginRight: theme.spacing(2),
+	},
+	logo: {
+		width: '300px'
+	}
 }));
 
 export default function TopBar() {
-  const classes = useStyles();
+	const classes = useStyles();
 
-  return (
-    <div className={classes.root}>
-      <AppBar position="static">
-        <Toolbar>
-          <MainMenu />
-          <img src={logo} className={classes.logo} alt="logo cliente" />
-        </Toolbar>
-      </AppBar>
-    </div>
-  );
+	return (
+		<div className={classes.root}>
+			<AppBar position="static">
+				<Toolbar>
+					<MainMenu />
+					<img src={logo} className={classes.logo} alt="logo cliente" />
+				</Toolbar>
+			</AppBar>
+		</div>
+	);
 }

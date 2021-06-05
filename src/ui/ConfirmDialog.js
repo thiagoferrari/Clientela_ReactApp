@@ -6,11 +6,11 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
-export default function ConfirmDialog({title = 'Confirmar', isOpen = false, onClose, children}) {
-  
+export default function ConfirmDialog({ title = 'Confirmar', isOpen = false, onClose, children }) {
+
+
   const handleClose = (result) => {
-    // Só chama a função onClose se a prop correspondente tiver sido passada
-    if(onClose) onClose(result);
+    if (onClose) onClose(result)
   };
 
   return (
@@ -28,11 +28,11 @@ export default function ConfirmDialog({title = 'Confirmar', isOpen = false, onCl
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => handleClose(true)} color="primary">
+          <Button onClick={() => handleClose(true)} variant="outlined">
             OK
           </Button>
-          <Button onClick={() => handleClose(false)} color="primary" autoFocus>
-            Cancelar
+          <Button onClick={() => handleClose(false)} color="primary" variant="contained" autoFocus>
+            CANCELAR
           </Button>
         </DialogActions>
       </Dialog>
