@@ -55,7 +55,7 @@ export default function ClienteList() {
 
     async function getData() {
         try {
-            let response = await axios.get('https://api.faustocintra.com.br/clientes')
+            let response = await axios.get('https://api.faustocintra.com.br/clientes?by=nome')
             if (response.data.length > 0) setClientes(response.data)
         }
         catch (error) {
